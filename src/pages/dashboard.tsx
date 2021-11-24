@@ -13,7 +13,7 @@ const options = {
     toolbar: {
       show:  false,
     },
-    zoom: {
+    zoom: { 
       enabled: false,
     },
     foreColor: theme.colors.gray[500],
