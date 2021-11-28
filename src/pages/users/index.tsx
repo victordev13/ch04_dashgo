@@ -1,8 +1,8 @@
 import { Box, Flex, Heading, Button, Icon, Table, Thead, Tbody, Th, Tr, Td, Checkbox, Text, IconButton } from '@chakra-ui/react';
 import { RiAddLine, RiPencilLine } from 'react-icons/ri';
-import { Header } from '../../components/Header/Header';
-import { Pagination } from '../../components/Pagination/Pagination';
-import { Sidebar } from '../../components/Sidebar/Sidebar';
+import { Header } from '../../components/Header';
+import { Pagination } from '../../components/Pagination';
+import { Sidebar } from '../../components/Sidebar';
 
 export default function UserList() {
   return (
