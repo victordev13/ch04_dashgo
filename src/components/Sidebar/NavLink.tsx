@@ -10,7 +10,7 @@ export function NavLink({ icon, children, ...rest }: Props) {
   return (
     <Link display="flex" align="center" {...rest}>
       <Icon as={icon} fontSize="20" />
-      <Text ml="4" fontWeight="medium">{children}</Text>
+      <a><Text ml="4" fontWeight="medium">{children}</Text></a>
     </Link>
   )
 }
