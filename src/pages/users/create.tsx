@@ -21,7 +21,7 @@ export default function CreateUser() {
 
             <SimpleGrid minChildWidth="240px" spacing={["6", "8"]} w="100%">
               <Input name="password" type="password" label="Senha" />
-              <Input name="password" type="password" label="Confirmar Senha" />
+              <Input name="confirm-password" type="password" label="Confirmar Senha" />
             </SimpleGrid>
           </VStack>
 
