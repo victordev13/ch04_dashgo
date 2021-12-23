@@ -3,6 +3,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { Input } from '../components/Form/Input/Input';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { Logo } from '../components/Header/Logo';
 
 type SignInFormData = {
   email: string;
@@ -10,18 +11,25 @@ type SignInFormData = {
 };
 
 const signInFormSchema = yup.object().shape({
-  email: yup.string().required('E-mail obrigatório').email('E-mail inválido'),
-  password: yup.string().required('Senha obrigatória')
-})
+  email: yup
+    .string()
+    .required('E-mail obrigatório')
+    .email('E-mail inválido'),
+  password: yup.string().required('Senha obrigatória'),
+});
 
 export default function SignIn() {
-  const { register, handleSubmit, formState, formState: { errors } } = useForm<SignInFormData>({
-    resolver: yupResolver(signInFormSchema)
+  const {
+    register,
+    handleSubmit,
+    formState,
+    formState: { errors },
+  } = useForm<SignInFormData>({
+    resolver: yupResolver(signInFormSchema),
   });
 
   const handleSignIn: SubmitHandler<SignInFormData> =
-    async (formData, event) => {
-    };
+    async (formData, event) => {};
 
   return (
     <Flex
@@ -38,6 +46,10 @@ export default function SignIn() {
         borderRadius={8}
         flexDir="column"
         onSubmit={handleSubmit(handleSignIn)}>
+        <Flex justify="center">
+          <Logo />
+        </Flex>
+
         <Stack spacing={4}>
           <Input
             type="email"
