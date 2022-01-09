@@ -29,7 +29,7 @@ export default function UserList() {
     lg: true,
   });
 
-  const { data, isLoading, error } = useQuery(
+  const { data, isLoading, isFetching, error } = useQuery(
     'users',
     async () => {
       const response = await fetch('/api/users');
@@ -73,6 +73,13 @@ export default function UserList() {
             align="center">
             <Heading size="lg" fontWeight="normal">
               Usuários
+              {isFetching && !isLoading && (
+                <Spinner
+                  size="sm"
+                  color="gray.500"
+                  ml={4}
+                />
+              )}
             </Heading>
             <Link href="/users/create" passHref>
               <Button
