@@ -15,6 +15,7 @@
     "@emotion/styled": "^11.3.0",
     "@hookform/resolvers": "^2.8.5",
     "apexcharts": "^3.30.0",
+    "axios": "^0.24.0",
     "faker": "5.5.3",
     "framer-motion": "^4.1.17",
     "miragejs": "^0.1.43",
@@ -30,6 +31,7 @@
   "devDependencies": {
     "@types/faker": "5.5.3",
     "@types/node": "^16.3.2",
+    "@types/axios": "^0.14.0",
     "@types/react": "^17.0.14",
     "eslint": "7.30.0",
     "eslint-config-next": "11.0.1",
