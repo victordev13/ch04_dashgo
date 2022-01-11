@@ -1,4 +1,9 @@
-import { createServer, Factory, Model } from 'miragejs';
+import {
+  createServer,
+  Factory,
+  Model,
+  Response,
+} from 'miragejs';
 import faker from 'faker';
 
 type User = {
@@ -35,7 +40,29 @@ export function makeServer() {
       this.namespace = 'api';
       this.timing = 750;
 
-      this.get('/users'); //shorthands
+      this.get('/users', (schema, request) => {
+        const { page = 1, per_page = 10 } =
+          request.queryParams;
+
+        const users = schema.all('user');
+        const total = users.length;
+
+        const pageStart =
+          (Number(page) - 1) * Number(per_page);
+        const pageEnd = pageStart + Number(per_page);
+        const usersPaginated = users.models.slice(
+          pageStart,
+          pageEnd
+        );
+
+        return new Response(
+          200,
+          { 'x-total-count': String(total) },
+          {
+            users: usersPaginated,
+          }
+        );
+      }); //shorthands
       this.post('/users');
 
       this.namespace = ''; // nao afetar as rotas do nextjs
