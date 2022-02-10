@@ -32,10 +32,6 @@ export function Pagination({
     ? generatePagesInterval(currentPage, Math.min(currentPage + sibilingsCount, lastPage))
     : []
 
-  console.log(lastPage);
-  console.log(nextPages);
-  console.log(currentPage);
-
   return (
     <Stack
       direction={["column", "row"]}
@@ -55,25 +51,25 @@ export function Pagination({
 
         {currentPage > (1 + sibilingsCount) && (
           <>
-            <PaginationItem number={1} />
+            <PaginationItem number={1} onPageChange={onPageChange} />
             {currentPage > (2 + sibilingsCount) && (<Text color="gray.300" width="8" textAlign="center">...</Text>)}
           </>
         )}
 
         {previousPages.length > 0 && previousPages.map(page => (
-          <PaginationItem number={page} key={page} />
+          <PaginationItem number={page} key={page} onPageChange={onPageChange} />
         ))}
 
-        <PaginationItem number={currentPage} isCurrent />
+        <PaginationItem number={currentPage} isCurrent onPageChange={onPageChange} />
 
         {nextPages.length > 0 && nextPages.map(page => (
-          <PaginationItem number={page} key={page} />
+          <PaginationItem number={page} key={page} onPageChange={onPageChange} />
         ))}
 
         {(currentPage + sibilingsCount) < lastPage && (
           <>
             {(currentPage + 1 + sibilingsCount) < lastPage && (<Text color="gray.300" width="8" textAlign="center">...</Text>)}
-            <PaginationItem number={lastPage} />
+            <PaginationItem number={lastPage} onPageChange={onPageChange} />
           </>
         )}
       </Stack>
