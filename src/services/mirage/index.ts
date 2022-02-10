@@ -1,4 +1,5 @@
 import {
+  ActiveModelSerializer,
   createServer,
   Factory,
   Model,
@@ -14,6 +15,10 @@ type User = {
 
 export function makeServer() {
   const server = createServer({
+    serializers: {
+      application: ActiveModelSerializer
+    },
+
     models: {
       user: Model.extend<Partial<User>>({}),
     },
@@ -50,7 +55,7 @@ export function makeServer() {
         const pageStart =
           (Number(page) - 1) * Number(per_page);
         const pageEnd = pageStart + Number(per_page);
-        const usersPaginated = users.models.slice(
+        const usersPaginated = users.models.sort((a,b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()).slice(
           pageStart,
           pageEnd
         );
