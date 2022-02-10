@@ -62,7 +62,8 @@ export function makeServer() {
             users: usersPaginated,
           }
         );
-      }); //shorthands
+      });
+      this.get('/users/:id');
       this.post('/users');
 
       this.namespace = ''; // nao afetar as rotas do nextjs
