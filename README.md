@@ -1,10 +1,11 @@
-### Developed during challenge 01 of chapter 04 at [Rocketseat Ignite](https://www.rocketseat.com.br/ignite)
+### Developed on chapter 04 at [Ignite ReactJS](https://www.rocketseat.com.br/ignite) of Rocketseat
 
 ***Tools***🛠:
  - Interface: [Chakra UI](https://chakra-ui.com//docs)
  - Graphics: [Apex Charts](https://apexcharts.com/)
  - Forms: [React Hook Form](https://react-hook-form.com/)
  - Form Validation: [Yup](https://github.com/jquense/yup)
+ - Data fetching and cache: [React Query](https://react-query.tanstack.com/)
 
 ***Screens***:
 
